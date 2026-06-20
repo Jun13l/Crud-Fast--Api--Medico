@@ -58,7 +58,7 @@ payload = {
 
 
 if btn_criar:
-    res = requests.post(f"{API_URL}/items/", json=payload)
+    res = requests.post(f"{'https://agendas-medicas.onrender.com'}/items/", json=payload)
     if res.status_code in [200, 201]:
         st.success("Consulta Agendada com sucesso!")
     else:
@@ -67,7 +67,7 @@ if btn_criar:
 
 # 2. ATUALIZAR
 if btn_atualizar and id_item > 0:
-    res = requests.put(f"{API_URL}/items/{id_item}", json=payload)
+    res = requests.put(f"{'https://agendas-medicas.onrender.com'}/items/{id_item}", json=payload)
     if res.status_code == 200:
         st.success(f"Consulta ID {id_item} atualizada com sucesso!")
     else:
@@ -76,7 +76,7 @@ if btn_atualizar and id_item > 0:
 # 3. DELETAR (Adicionado de volta para funcionar com o formulário)
 if btn_deletar:
     if id_item > 0:
-        res = requests.delete(f"{API_URL}/items/{id_item}")
+        res = requests.delete(f"{'https://agendas-medicas.onrender.com'}/items/{id_item}")
         if res.status_code == 200:
             st.success(f"Consulta ID {id_item} Cancelada com sucesso!")
         else:
@@ -88,7 +88,7 @@ if btn_deletar:
 st.subheader(" 🗓️ Consultas Agendadas")
 try:
    
-    resposta_get = requests.get(f"{API_URL}/items/")
+    resposta_get = requests.get(f"{'https://agendas-medicas.onrender.com'}/items/")
     if resposta_get.status_code == 200:
         lista_itens = resposta_get.json()
         if lista_itens:
