@@ -88,7 +88,7 @@ if btn_deletar:
 st.subheader(" 🗓️ Consultas Agendadas")
 try:
    
-    resposta_get = requests.get(f"{'https://agendas-medicas.onrender.com'}/items/")
+    resposta_get = requests.get(f"{'https://crud-fast-api-medico.onrender.com/'}/items/")
     if resposta_get.status_code == 200:
         lista_itens = resposta_get.json()
         if lista_itens:
