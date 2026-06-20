@@ -2,11 +2,10 @@ import streamlit as st
 import requests
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 
 # Configuração da URL da API
-API_URL = os.getenv("API_URL", "https://fastapiprojeto.onrender.com")
+API_URL = os.getenv("API_URL", "https://agendas-medicas.onrender.com/")
 
 st.set_page_config(page_title="CRUD Consultas", layout="centered")
 st.title("🏥 Agendamento de  Consulta")
