@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuração da URL da API
-API_URL = os.getenv("API_URL", "https://agendas-medicas.onrender.com")
+API_URL = os.getenv("API_URL", "https://crud-fast-api-medico.onrender.com")
 
 st.set_page_config(page_title="CRUD Consultas", layout="centered")
 st.title("🏥 Agendamento de  Consulta")
@@ -58,7 +58,7 @@ payload = {
 
 
 if btn_criar:
-    res = requests.post(f"{'https://agendas-medicas.onrender.com'}/items/", json=payload)
+    res = requests.post(f"{'https://crud-fast-api-medico.onrender.com'}/items/", json=payload)
     if res.status_code in [200, 201]:
         st.success("Consulta Agendada com sucesso!")
     else:
@@ -67,7 +67,7 @@ if btn_criar:
 
 # 2. ATUALIZAR
 if btn_atualizar and id_item > 0:
-    res = requests.put(f"{'https://agendas-medicas.onrender.com'}/items/{id_item}", json=payload)
+    res = requests.put(f"{'https://crud-fast-api-medico.onrender.com'}/items/{id_item}", json=payload)
     if res.status_code == 200:
         st.success(f"Consulta ID {id_item} atualizada com sucesso!")
     else:
@@ -76,7 +76,7 @@ if btn_atualizar and id_item > 0:
 # 3. DELETAR (Adicionado de volta para funcionar com o formulário)
 if btn_deletar:
     if id_item > 0:
-        res = requests.delete(f"{'https://agendas-medicas.onrender.com'}/items/{id_item}")
+        res = requests.delete(f"{'https://crud-fast-api-medico.onrender.com'}/items/{id_item}")
         if res.status_code == 200:
             st.success(f"Consulta ID {id_item} Cancelada com sucesso!")
         else:
