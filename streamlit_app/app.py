@@ -65,7 +65,7 @@ if btn_criar:
         st.error(f"Erro ao agendar consulta. Status: {res.status_code}")
         st.warning(f"Resposta detalhada da API: {res.text}")
 
-# 2. ATUALIZAR
+
 if btn_atualizar and id_item > 0:
     res = requests.put(f"{'https://crud-fast-api-medico.onrender.com'}/items/{id_item}", json=payload)
     if res.status_code == 200:
@@ -73,7 +73,7 @@ if btn_atualizar and id_item > 0:
     else:
         st.error(f"Não foi possível atualizar a consulta {id_item}. Detalhes: {res.text}")
 
-# 3. DELETAR (Adicionado de volta para funcionar com o formulário)
+
 if btn_deletar:
     if id_item > 0:
         res = requests.delete(f"{'https://crud-fast-api-medico.onrender.com'}/items/{id_item}")
